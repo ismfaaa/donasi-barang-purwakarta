@@ -22,8 +22,10 @@ jobs:
         with:
           node-version: '22'
           
-      - name: Install dependencies (Paksa aman)
-        run: npm install --legacy-peer-deps
+      - name: Fix Rollup Cross-OS Bug & Install
+        run: |
+          rm -f package-lock.json
+          npm install --legacy-peer-deps
         
       - name: Build Website
         run: npm run build
