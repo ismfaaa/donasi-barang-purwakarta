@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { cn } from '../../lib/utils';
+
+export interface Props extends HTMLAttributes<'div'> {
+  class?: string;
+  hoverEffect?: boolean;
+}
+
+const { class: className, hoverEffect = false, ...props } = Astro.props;
+---
+
+<div
+  class={cn(
+    'rounded-3xl border border-slate-100 bg-white text-slate-900 shadow-sm',
+    hoverEffect && 'transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-slate-200',
+    className
+  )}
+  {...props}
+>
+  <slot />
+</div>
+

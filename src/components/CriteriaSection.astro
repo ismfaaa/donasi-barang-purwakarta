@@ -1,0 +1,71 @@
+---
+import Card from './ui/card.astro';
+
+const items = [
+  {
+    title: 'Pakaian Semua Umur',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDQZkdqCpmjPBGPB4OyxE2FrlKZ2FkRtr1yzKz8ixRm5C_7BR5uoL5A2raVHp2CQw5_uOoEirYwMiYWRoI8hGp_mMomS567Z0DGlY3jkdttjr2pOx2bSsxHMVIS6tHCRCPUcYS2B5GK0xmost9zarqfc49CcXA1L_s3bKYQTLo2deM8_GH7WTAQtHAd_RHD5obrLoZmJ56PiXXvevm-6SB2saVDsTkTLFS-sVGD5w',
+    alt: 'Neat clean stack of folded clothes for adults and kids in bright contemporary light, organized nicely on a clean surface.',
+  },
+  {
+    title: 'Barang Elektronik',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAYPLPVh34xNF-GnOMmCIer20JZ0RPtqWELUSy4VyhApFz19zEqhGLduppb7mgKIDDL-Bu0BkAkVGx0Bi9GHZOhlKZNfXNefCVnN_pv0FLz-dBpvGc2f-RhYYUcVsU9Cor8UY_bUAylRJ_X6Ka_pnZkOWyqK2h7s-zfDxGa3idulm2wKi7YjnhNLCDl6Q49_Ah5Ua5MVcnAM94zScOfYYrfQcR35KqLOrxW4tBm_Q',
+    alt: 'Modern working electronics and home gadgets neatly staged with clean background, smartphones, blender, electric iron.',
+  },
+  {
+    title: 'Buku & Alat Tulis',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuApcMp3LlxOXnLGO0g7ioCnNt8UewKW3OdiLZymUNAhLCjZS5aRX_XgTB__wrVECPJBdc_0vPP03GmBzsCd4z1ciM4ZeVUYPlogLig6ppU1DkWLsyfLOG7t_zDwO0zdpYwqEzGNTpk3el9MREN44kY2HH8xqd82-mZbsdLlpcUptyjeGLB35bL9DItad1HyuclewBUMR-EtNw58qai3yl2r9EzIXdUv4X_q4NpNig',
+    alt: 'A clean stack of readable educational books, stationery, notebooks, and pens arranged in an organized study desk setup.',
+  },
+  {
+    title: 'Perkakas',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAzWfjTypLVu4kQbTdY_eJ_VI9mEhyd3vvmHep7iWADDRJzs1y_hkkvUGatyG8rYHww-JiD70qn5cho_ajUxZcO8EEGsBA7UXEfOPbUZKx1jtWqENmoyVTophKKrmMALkf6UZgzLwX_zrASFtBiDyDkKVB3HZW9_4N0AdOIhy2FJpw6WDiYFYYoaNcAjThj05kZB0bJ1dgDBuynrW_b6xZzhHnU9mbvsJ1hC37bdA',
+    alt: 'Clean DIY hardware tools, screwdrivers, wrenches, hammer placed neatly in a durable storage box with bright lighting.',
+  },
+  {
+    title: 'Alat Ibadah',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAifwiqQ0qSHW-QZYMk-aiYpPObfMHtf0k0d-PgiQkARO3cPkJ4dK1Hr7HWc0SdplgIAeUK4RQChmqadbHzloMiLEt-jKm3V4PBx373hcsGlb0MualuABv0grOHy61O2PDHv5ojPTlJfufIvgCwYOIIiJ23iLFkM-TpULEbPTmmzEvdjnT3q6N_wIH85HRqxQ_TKNVS_-3eqzv8VKabFsQLyIU9QZaKiqcUGHc47A',
+    alt: 'Clean islamic prayer set including a folded woven prayer mat sajadah, white clean mukena, and wooden prayer beads.',
+  },
+  {
+    title: 'Alat Kebersihan',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAhcGBmKrUmOIxS5En83cw5UjQGO2cT4pNZe3R7BnnG0aQS9goDwvqVeBY7ZFI9RCuMFqjtm_ypc4gIPXA0YjbkkcG5SeESBrZ4fe5MKtZUTKEuDBNZdMxGvYcm3QKqj2bdjSP_NsoMcGgHuMV9FiP9Vso5cedpeB7fYRio3iCah3EYet4GGleK5bcuUaKPN-LtuNJXmFufrdN27aNohsP_FfKCzYGC9Drn4Ek4hw',
+    alt: 'Modern clean household cleaning tools like broom, mop, microfiber cloths arranged neatly in an orderly utility space.',
+  },
+  {
+    title: 'Peralatan Rumah Tangga',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDAVd2tgsIh-gOBHURvq2ZJG3ok2UndfzbhLZ5CLBIUa1d7v5RU7tML_SuywTt2WK23OlQ0fBx4TZMKTEYGJFRTEB8TTyF5ukRoe9SeLgnrrNENToN4CHDlfco-0BI8bp1YzIRDpV71b-rbhg7vvV6jfomLzNuIvrGe-vaebktomGhnY9N51th-PaZJ_fTA2vJu473jwd4n_Wdnl1s3GLoDgyNksc8lq7rNmtzC2w',
+    alt: 'Clean kitchen cookware, steel pans, glass dinnerware, and home kitchen utensils presented brightly on a tidy kitchen counter.',
+  },
+];
+---
+
+<!-- 4. Kriteria Barang (Highly Visual Image Cards) -->
+<section id="kriteria" class="bg-slate-50/80 py-24 lg:py-32 w-full border-y border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16 lg:mb-20 reveal-on-scroll">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-3 tracking-tight">Barang yang Dapat Didonasikan</h2>
+      <p class="text-base sm:text-lg text-slate-500 leading-relaxed">Pastikan barang yang Anda donasikan dalam kondisi masih layak pakai.</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
+      {items.map((item, index) => (
+        <div class="reveal-on-scroll" style={`transition-delay: ${(index % 4) * 100}ms`}>
+          <Card hoverEffect class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group border border-slate-100 h-full flex flex-col">
+            <div class="overflow-hidden h-44 sm:h-48 w-full bg-slate-100">
+              <img
+                class="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
+                src={item.image}
+                alt={item.alt}
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4 sm:p-5 text-center bg-white z-10 relative flex-1 flex items-center justify-center">
+              <span class="font-bold text-slate-800 text-sm sm:text-base group-hover:text-orange-600 transition-colors">{item.title}</span>
+            </div>
+          </Card>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

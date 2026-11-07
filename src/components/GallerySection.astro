@@ -1,0 +1,90 @@
+---
+import Button from './ui/button.astro';
+
+const polaroids = [
+  {
+    title: 'Atasan Dewasa',
+    rotation: 'rotate-3',
+    hoverRotate: 'group-hover:rotate-0',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB1LvH1MEIpWpV661p4-wx4pO2UbK5cCG4xxEbJxAxLJKuPH3S12mTlciETyaBKaRpo1USjinvfICm2XsNAaN5oDgl3VjPg3494JKVL1-kAoybOdrDHGEConZRDLLHmioJ1U_r8HwOguEDreoda2XzedblFO6IkA0oJOEkrunjb1w8XUny2lS2LSijZCDASKzTFUgPiQUka3l5_0neCmq_oOcFlMYoTCq1nqqRqbw',
+    alt: 'Clean trendy adult casual button-up shirt and blouse hung neatly against a bright minimalist background.',
+  },
+  {
+    title: 'Rok',
+    rotation: '-rotate-2',
+    hoverRotate: 'group-hover:rotate-0',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDTMhmCGtmdbhb3SjZsmdViVmmRRed6ilad4q2Fb1C5KfRyP1oS_7ZmC0AMWWtKeqFSR_gXQ5WEO4JO8e-_2JqtxkXvuAz2hg5DK6Qlq_I4mUyja3-CBEtQtWREnsNZ5fN4OCF-Zw7NCilzHybuvCx4Lx82Zy_41_7wtTxNczqIXcRAWYFHpBFQ8_UDU07DVy9U9ARxitG-PzJt8Dw81guS5b8Dt86htsVyy3iihA',
+    alt: 'Pleated elegant long skirt in soft pastel color showcased in bright natural sunlight in pristine condition.',
+  },
+  {
+    title: 'Baju Anak',
+    rotation: 'rotate-1',
+    hoverRotate: 'group-hover:rotate-0',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuACBDF_CRnx6PmE5JT8SlnJXKyr0rsEuAKx_R_xFlkOi3UIvpj4kb6xMDjrvnc4CwkL5xEg77C_nz6N5AjNZIkcA832tu9HhXGsjV_zQjbXqYzzYIhPYI4luDpIpqulFUtullbibHB90FQF5zkA_HcZXlZ8F5IdrGmB9JLmNduFvfKzR3yVZAOufVCmylQQYpMxUaCt-elZBK7wmBCQ7KqMoTbghMqtCoTm2u4fqQ',
+    alt: 'Colorful clean kids cotton t-shirts and cute clothing pieces folded neatly on a wooden floor.',
+  },
+  {
+    title: 'Sepatu',
+    rotation: '-rotate-3',
+    hoverRotate: 'group-hover:rotate-0',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDxoI8JHPEv0I8ITMPfm4iVicJBrHS4AohVflDMeJ8D4jtbMpPZDfqZmI0Riwd2EzN3Jn8JmuJ8rYAudEqx8A9Jz5catep-LqZM9zlv0SK_r8G-6SgexBv5i5HS5d8RddPspkwYef79bhONR25byXui8p8-TZBV6-5-YM5lEQspIDScM3x20nI_zQEdNiloIxdy_N8OfPEGsVmDKGmFnCgdP4Kc76HLYZYBww-LjA',
+    alt: 'Clean sneakers in great condition, polished white soles, set in bright studio lighting ready for donation.',
+  },
+  {
+    title: 'Televisi',
+    rotation: 'rotate-2',
+    hoverRotate: 'group-hover:rotate-0',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAh3iCkpCVNXUsMRA2giSdWl_l_4krVLPM-6AfNgcgX4fKKRiwtZJXw7yYqJweQnDC0fioCvjRvgp_Ee3Hbw4gdEY5Q_aArWL6dfFtnwrEBvf_EKBarbYBxfY_0UWVr-OtLOobb4N8cRxFyRgR2wJKlVZRv0HZaxl9BXkKo6RXH65pLSjI2FczPCE-wvKGYkv8zf8MZ-jlqerVo0HPrZa_JfaWPjaqKeJF2L6egMg',
+    alt: 'Flat screen smart television displayed on a clean TV stand, working screen in crisp clear state.',
+  },
+  {
+    title: 'Tas',
+    rotation: '-rotate-1',
+    hoverRotate: 'group-hover:rotate-0',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAXswVqbiiRwQGe3E3EVqHDsAZYbZ1gmWew9S0ipQJ9utkZ9LIb2t8QIjQulpCUYGNWm51CKS90pvR3lCKgNeqLpsZq17pouzhFQUH1GDN8BECWCXwVDKcdRygLpi9-HcX3KTh1KNoYUAg7SA_KQkBuF1pAK3PTJ1Ix5gVjjeiWzW8wfSyA1XOTjt7nZpA719S6lLECethzPCVAXK1m4oJd_F-Rtey6NL_QRDCW7w',
+    alt: 'Stylish clean leather backpack and shoulder handbag placed gently on a marble table with bright ambient light.',
+  },
+];
+---
+
+<!-- 6. Galeri Barang Donasi (Polaroid Style Masonry) -->
+<section id="galeri" class="bg-slate-50/80 py-24 lg:py-32 overflow-hidden w-full border-b border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-16 text-center tracking-tight reveal-on-scroll">
+      Galeri Barang Donasi
+    </h2>
+
+    <div class="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto px-4 py-8">
+      {polaroids.map((item, index) => (
+        <div class="reveal-on-scroll" style={`transition-delay: ${index * 80}ms`}>
+          <div class={`bg-white p-4 shadow-xl hover:shadow-2xl rounded-sm pb-16 w-64 transform ${item.rotation} ${item.hoverRotate} transition-all duration-300 hover:z-50 hover:scale-110 cursor-pointer group`}>
+            <img
+              class="square h-52 w-full object-cover rounded-sm group-hover:scale-105 transition-transform duration-500 ease-out"
+              src={item.image}
+              alt={item.alt}
+              loading="lazy"
+            />
+            <div class="font-medium text-slate-700 text-lg mt-4 text-center italic font-serif group-hover:text-orange-600 transition-colors">
+              {item.title}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA Bottom -->
+    <div class="mt-16 text-center flex justify-center px-4 reveal-on-scroll">
+      <Button
+        href="https://wa.me/6285117305487"
+        target="_blank"
+        rel="noopener noreferrer"
+        variant="orange"
+        size="xl"
+        class="bg-orange-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-orange-600 transition-colors inline-flex items-center gap-3 text-base md:text-lg"
+      >
+        <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+        <span>Tertarik membeli? Hubungi Admin WhatsApp (Mulai dari Rp 5.000)</span>
+      </Button>
+    </div>
+  </div>
+</section>

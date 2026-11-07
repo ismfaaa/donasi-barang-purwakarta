@@ -1,28 +1,32 @@
 ---
-import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Tentang from '../components/Tentang.astro';
+import Kriteria from '../components/Kriteria.astro';
+import Alur from '../components/Alur.astro';
+import Galeri from '../components/Galeri.astro';
+import Dokumentasi from '../components/Dokumentasi.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+<Layout
+  title="Donasi Barang Purwakarta - Ubah Barang Tak Terpakai Menjadi Amal Jariyah"
+  description="Layanan jemput donasi barang layak pakai gratis se-Purwakarta. Seluruh hasil lelang dialokasikan 100% untuk wakaf pembangunan kelas tahfidz Quran."
+>
+  <!-- 2. Hero Section -->
+  <Hero />
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">
-				Markdown is also supported...
-			</a>
-		</div>
-	</body>
-</html>
+  <!-- 3. Tentang & Impact Stats (Overlapping the Hero) -->
+  <Tentang />
+
+  <!-- 4. Kriteria Barang -->
+  <Kriteria />
+
+  <!-- 5. Alur Program (Redesigned Rich Horizontal Timeline) -->
+  <Alur />
+
+  <!-- 6. Galeri Barang Donasi (Polaroid Style) -->
+  <Galeri />
+
+  <!-- 7. Dokumentasi Penjemputan -->
+  <Dokumentasi />
+</Layout>

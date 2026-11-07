@@ -1,0 +1,86 @@
+---
+import Card from './ui/card.astro';
+
+const steps = [
+  {
+    number: '1',
+    title: '1. Hubungi Admin',
+    desc: 'Tanya-tanya atau konfirmasi donasi via WhatsApp ke tim kami.',
+    icon: 'chat',
+    gradient: 'from-emerald-600 to-emerald-500',
+    borderColor: 'border-emerald-500',
+    glowColor: 'shadow-emerald-500/20',
+  },
+  {
+    number: '2',
+    title: '2. Serahkan / Jemput',
+    desc: 'Bisa diantar langsung atau tim kami siap jemput gratis ke rumah Anda (area Purwakarta).',
+    icon: 'local_shipping',
+    gradient: 'from-teal-600 to-teal-500',
+    borderColor: 'border-teal-500',
+    glowColor: 'shadow-teal-500/20',
+  },
+  {
+    number: '3',
+    title: '3. Lelang & Jual',
+    desc: 'Barang disortir dan dibersihkan, lalu dilelang atau dijual kepada masyarakat dengan harga terjangkau.',
+    icon: 'storefront',
+    gradient: 'from-amber-600 to-amber-500',
+    borderColor: 'border-amber-500',
+    glowColor: 'shadow-amber-500/20',
+  },
+  {
+    number: '4',
+    title: '4. Wakaf Kelas Tahfidz',
+    desc: 'Seluruh hasil penjualan didedikasikan untuk dana wakaf pembangunan kelas tahfidz Yayasan.',
+    icon: 'mosque',
+    gradient: 'from-orange-600 to-orange-500',
+    borderColor: 'border-orange-500',
+    glowColor: 'shadow-orange-500/20',
+  },
+];
+---
+
+<!-- 5. Alur Program (Horizontal Timeline Redesigned) -->
+<section id="alur" class="bg-white py-24 lg:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative">
+  <div class="text-center max-w-2xl mx-auto mb-20 lg:mb-24 reveal-on-scroll">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-3 tracking-tight">Alur Program</h2>
+    <p class="text-base sm:text-lg text-slate-500 leading-relaxed">Proses mudah dan transparan dari penjemputan donasi hingga penyaluran wakaf.</p>
+  </div>
+
+  <div class="relative">
+    <!-- Desktop Horizontal Connecting Visual Line -->
+    <div class="hidden lg:block absolute top-10 left-[12%] right-[12%] h-1.5 bg-gradient-to-r from-emerald-500 via-teal-500 via-amber-500 to-orange-500 rounded-full z-0">
+      <div class="absolute inset-0 bg-white/30 animate-pulse-subtle"></div>
+    </div>
+
+    <!-- 4 Steps Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+      {steps.map((step, index) => (
+        <div class="reveal-on-scroll flex flex-col items-center text-center group" style={`transition-delay: ${index * 120}ms`}>
+          <!-- Timeline Node Circle -->
+          <div class="relative mb-6">
+            <div class={`w-20 h-20 rounded-full bg-gradient-to-tr ${step.gradient} text-white font-bold text-2xl flex items-center justify-center shadow-xl ${step.glowColor} border-4 border-white group-hover:scale-110 transition-all duration-300`}>
+              <span class="material-symbols-outlined text-[30px]">{step.icon}</span>
+            </div>
+            <div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-slate-900 text-white text-[11px] font-black uppercase tracking-wider shadow-sm">
+              Step {step.number}
+            </div>
+          </div>
+
+          <!-- Step Card with short descriptive text -->
+          <Card hoverEffect class="w-full p-6 sm:p-7 flex-1 flex flex-col justify-between bg-white border border-slate-200/90 shadow-md group-hover:shadow-xl transition-all duration-300">
+            <div>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-800 mb-2.5 group-hover:text-orange-600 transition-colors">
+                {step.title}
+              </h3>
+              <p class="text-sm text-slate-600 leading-relaxed font-normal">
+                {step.desc}
+              </p>
+            </div>
+          </Card>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

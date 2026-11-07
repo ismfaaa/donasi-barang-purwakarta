@@ -1,0 +1,36 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '../../lib/utils';
+
+export const badgeVariants = cva(
+  'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+  {
+    variants: {
+      variant: {
+        default: 'border-transparent bg-slate-900 text-white hover:bg-slate-800',
+        secondary: 'border-transparent bg-slate-100 text-slate-800 hover:bg-slate-200',
+        destructive: 'border-transparent bg-red-500 text-white hover:bg-red-600',
+        outline: 'text-slate-700 border border-slate-200 bg-white/70 backdrop-blur-sm',
+        success: 'border-transparent bg-emerald-100 text-emerald-800 hover:bg-emerald-200/80',
+        orange: 'border-transparent bg-orange-100 text-orange-800 hover:bg-orange-200/80',
+        pill: 'border border-emerald-200/70 bg-emerald-50/80 text-emerald-700 font-bold shadow-xs',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  }
+);
+
+export interface Props extends HTMLAttributes<'span'>, VariantProps<typeof badgeVariants> {
+  class?: string;
+}
+
+const { variant, class: className, ...props } = Astro.props;
+---
+
+<span class={cn(badgeVariants({ variant }), className)} {...props}>
+  <slot />
+</span>
+

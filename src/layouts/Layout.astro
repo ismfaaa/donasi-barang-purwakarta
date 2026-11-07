@@ -1,0 +1,74 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Donasi Barang Purwakarta - Ubah Barang Tak Terpakai Menjadi Amal Jariyah',
+  description = 'Program donasi barang layak pakai untuk dilelang guna mendukung dana wakaf pembangunan ruang kelas tahfidz Quran di Purwakarta.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Google Fonts: Plus Jakarta Sans & Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-[#faf8ff] text-slate-900 font-sans antialiased min-h-screen flex flex-col selection:bg-orange-500 selection:text-white">
+    <!-- Header / Navbar -->
+    <Navbar />
+
+    <!-- Main Content Slot (Ensured placed between Navbar and Footer) -->
+    <main class="w-full pt-20 bg-[#faf8ff] flex-1">
+      <div class="flex flex-col w-full">
+        <slot />
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+
+    <!-- Floating WhatsApp Action Button (bottom-right) -->
+    <aside class="fixed bottom-6 right-6 z-40">
+      <a
+        href="https://wa.me/6285117305487"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat WhatsApp Admin Livia"
+        class="flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-3 sm:px-5 sm:py-3.5 rounded-full shadow-2xl hover:shadow-emerald-600/40 hover:scale-105 transition-all duration-300 group border-2 border-white"
+      >
+        <span class="material-symbols-outlined text-[24px] group-hover:scale-110 transition-transform">chat</span>
+        <span class="text-xs sm:text-sm tracking-tight hidden sm:inline">Tanya Admin</span>
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-200"></span>
+        </span>
+      </a>
+    </aside>
+  </body>
+</html>

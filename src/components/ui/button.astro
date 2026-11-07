@@ -1,0 +1,56 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '../../lib/utils';
+
+export const buttonVariants = cva(
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98]',
+  {
+    variants: {
+      variant: {
+        default: 'bg-slate-900 text-white shadow-sm hover:bg-slate-800',
+        orange: 'bg-orange-500 hover:bg-orange-600 text-white shadow-lg hover:shadow-orange-500/25 hover:-translate-y-0.5',
+        orangeDark: 'bg-[#9d4300] hover:bg-[#783200] text-white shadow-md hover:shadow-lg hover:-translate-y-0.5',
+        green: 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-emerald-600/25 hover:-translate-y-0.5',
+        secondary: 'bg-slate-100 text-slate-900 hover:bg-slate-200',
+        outline: 'border border-slate-200 bg-white hover:bg-slate-50 text-slate-900 shadow-xs',
+        ghost: 'hover:bg-slate-100 text-slate-700 hover:text-slate-900',
+        link: 'text-orange-600 underline-offset-4 hover:underline p-0 h-auto',
+      },
+      size: {
+        default: 'h-11 px-5 py-2.5 text-sm',
+        sm: 'h-9 px-3.5 text-xs rounded-xl',
+        lg: 'h-13 px-7 text-base rounded-2xl',
+        xl: 'h-14 px-8 text-lg rounded-2xl font-bold tracking-tight',
+        icon: 'h-10 w-10 p-0 rounded-full',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
+    },
+  }
+);
+
+export interface Props extends HTMLAttributes<'button'>, HTMLAttributes<'a'>, VariantProps<typeof buttonVariants> {
+  href?: string;
+  target?: string;
+  rel?: string;
+  class?: string;
+}
+
+const { href, variant, size, class: className, ...props } = Astro.props;
+---
+
+{
+  href ? (
+    <a href={href} class={cn(buttonVariants({ variant, size }), className)} {...props}>
+      <slot />
+    </a>
+  ) : (
+    <button class={cn(buttonVariants({ variant, size }), className)} {...props}>
+      <slot />
+    </button>
+  )
+}
+
